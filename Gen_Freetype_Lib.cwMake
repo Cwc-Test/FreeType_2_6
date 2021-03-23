@@ -1,0 +1,18 @@
+;Register Cwc before using a .cwmake
+>
+-{_sOpt}:="O2"
+>
+-{_wToolchain}:= VLianceTool/LibRT
+>
+-{pLibDir}:=Lib/Lib_{_sOpt}/
+>
+-{pObj}:=obj/{_sPlatform}_{_sOpt}/
+>
+-{vIncl}= -I FreeType/
+>
+-c Freetype/FreeType.cpp -o {pObj}Lib_Dynamic/FreeType.o
+	-{vIncl}
+>
+-o  {pObj}Lib_Dynamic/ -#To {pLibDir}FreeType.dll 
+-Wl,--out-implib,{pLibDir}libFreeType-dll.a
+>

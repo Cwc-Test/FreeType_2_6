@@ -1,0 +1,29 @@
+;Register Cwc before using a .cwmake
+>
+-{_sOpt}="O2"
+>
+-{_wToolchain}= VLianceTool/LibRT
+>
+-{pLib}=Lib/Lib_Debug/
+>
+-{pOut}=_out/{_sPlatform}_{_sOpt}/
+-{pLibDir}= Lib/Lib_{_sOpt}/
+-{pObj}= obj/{_sPlatform}_{_sOpt}/
+>
+-{vIncl}= -I FreeType/
+>
+;Build FreeType
+-c Freetype/FreeType.cpp -o {pObj}Lib_Static/FreeType.o
+	-{vIncl}
+>
+-o {pObj}Lib_Static/ -#To {pLibDir}libFreeType.a
+>
+;Build Example
+-c Freetype/Test.cpp -o {pObj}Example/Test.o
+	-{vIncl}
+>
+;Link
+-o 	 {pObj}Example/
+ -#To {pOut}FreeType.exe -lgdi32 {pObj}Lib_Static/FreeType.o
+>
+
