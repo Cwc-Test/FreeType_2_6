@@ -27,4 +27,5 @@
 	-L {pLibDir}
 	-lFreeType
 >
-
+-#Run
+>
